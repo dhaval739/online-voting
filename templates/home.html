@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <div class="container">
+<!--     <h1>Welcome To FlaskApp</h1>
+    <p class="lead">This application is built on the Python Flask framework and is the focus for the "Python Flask From Scratch" YouTube series</p>
+    {% if session.logged_in == NULL %}
+      <a href="/register" class="btn btn-primary btn-lg">Register</a>
+      <a href="/login" class="btn btn-success btn-lg">Login</a>
+    {% endif %}
+
+ -->
+
+   <img width="70%" height="auto" src="{{ url_for('static', filename='imgs/vtbg.jpg' ) }}" alt="this was background" class="img img-responsive">
+
+   </div>
+{% endblock %}

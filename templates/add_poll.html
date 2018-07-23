@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  
+<h1>Add Poll</h1>
+<h2>Step 1</h2>
+  {% from "includes/_formhelpers.html" import render_field %}
+  <form method="POST" action="">
+    <div class="form-group">
+      {{render_field(form.ptitle, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.strt, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.end, class_="form-control")}}
+    </div>
+    <p><input type="submit" class="btn btn-primary" value="Submit"></p>
+  </form>
+
+
+{% endblock %}

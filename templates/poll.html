@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <div class="container">
+    <h2>Vote your candidate</h2>
+    
+    <form action="" method="POST">
+      {% for candidate in candidates %}
+      <div class="radio">
+        <label><input type="radio" name="optradio" value="{{candidate.id}}">{{candidate.vname}}</label>
+      </div>
+      {% endfor %}
+      <button type="submit" class="btn btn-primary">Submit</button>	
+    </form>
+  </div>
+{% endblock %}

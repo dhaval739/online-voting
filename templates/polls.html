@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>Dashboard 
+    <br>
+    <small> Welcome {{session.username}}</small>
+  </h1>
+  <hr>
+  <table class="table table-striped">
+    <tr>
+      <th>Poll ID</th>
+      <th>Poll Title</th>
+      <th>Starts From</th>
+      <th>Ends at</th>
+      <th>Goto Vote</th>
+      <th>Result</th>
+        
+    </tr>
+    {% for poll in polls %}
+      <tr>
+        <td>{{poll.poll_id}}</td>
+        <td>{{poll.poll_title}}</td>
+        <td>{{poll.starts_from}}</td>
+        <td>{{poll.ends_at}}</td>
+        
+          {% if nowdt > poll.starts_from and nowdt < poll.ends_at %}
+          <td><a href="/polls/{{poll.poll_id}}/" class="btn btn-success pull-right" >Vote</a></td>
+          {% else %}
+          <td><a href="/polls/{{poll.poll_id}}/" class="btn btn-success pull-right" disabled>Vote</a></td>
+          {% endif %}
+        <!-- <td><a href="display_result/{{poll.id}}" class="btn btn-default ">Edit</a></td> -->
+      </tr>
+    {% endfor %}
+</table>
+{% endblock %}

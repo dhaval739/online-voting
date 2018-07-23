@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<h1>Add Voters</h1>
+<div class="row">
+<a href="/register"><div style="background-color: #65729b; color: black; "class="col-sm-2"><h3>Add New Voter</h3>
+</div></a>
+</div>
+<hr>
+<table class="table table-striped">
+    <tr>
+      <th>AID</th>
+      <th>Vname</th>
+      <th>DOB</th>
+      <th></th>
+    </tr>
+    {% for voter in voters %}
+    	<tr>
+        <td>{{voter.aid}}</td>
+        <td>{{voter.vname}}</td>
+        <td>{{voter.dob}}</td>
+        
+        
+        	<td >
+            <form id="upload-form" action="{{url_for('upload_file')}}" method="POST" enctype="multipart/form-data">
+                <input type="text" name="voter_id" value="{{voter.aid}}" hidden>
+                <input type="file" name="file" accept="image/*">                
+                 <input type="submit" value="approve" style="float: right;"> 
+             </form>
+        
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+{{ endblock }}
+
+
+
+
+{% endblock %}

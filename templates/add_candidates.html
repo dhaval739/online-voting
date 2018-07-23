@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>Add candidate</h1>
+  <form action="" method="POST">
+    <div class="form-group">
+      <label>Candidate ID</label>
+      <input type="text" name="aaid" class="form-control" value={{request.form.aaid}}>
+    </div>
+  	<button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <br><br>
+
+  <h1>List of candidates</h1>
+  <ul class="list-group">
+    {% for candidate in candidates %}
+      <li class="list-group-item">{{candidate.vname}}</li>
+    {% endfor %}
+  </ul>
+  <a href="/admin/options">Finish</a>
+
+
+{% endblock %}
+  
